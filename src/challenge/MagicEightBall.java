@@ -2,21 +2,26 @@ package challenge;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class MagicEightBall {
     static void main() {
-        Scanner scan = new Scanner(System.in);
 
+        Scanner scan = new Scanner(System.in);
         List<String> answers = listOfAnswers();
+        Random randomNumber = new Random();
 
         System.out.println("What is your question?");
         String question = scan.nextLine();
 
+        System.out.println(answers.get(randomNumber.nextInt(19)));
 
+        scan.close();
 
     }
 
+    // simulates another file with all the questions added
     public static List<String> listOfAnswers() {
         List<String> ans = new ArrayList<>();
         ans.add("It is certain.");
