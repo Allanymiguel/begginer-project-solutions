@@ -17,17 +17,18 @@ public class MagicEightBall {
         while(running){
             System.out.println("What is your question?");
             scan.nextLine();
+
             System.out.println("Humm... thinking...\n");
-            TimeUnit.SECONDS.sleep(3);
+            TimeUnit.SECONDS.sleep(3); //waits 3 seconds
+
             System.out.println(answers.get(randomNumber.nextInt(19)));
             TimeUnit.SECONDS.sleep(1);
 
             System.out.println("Press number 1 to ask something or any other key to quit: ");
             String option = scan.next();
             scan.nextLine();
-
-            if(option.equals("1")) continue;
-            else {
+            
+            if (!option.equals("1")){
                 System.out.println("Finishing application.");
                 running = false;
             }
