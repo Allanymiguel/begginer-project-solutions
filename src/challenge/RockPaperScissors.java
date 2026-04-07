@@ -6,31 +6,38 @@ import java.util.Scanner;
 public class RockPaperScissors {
     static int userScore = 0;
     static int computerScore = 0;
+
     static void main() {
         Scanner scan = new Scanner(System.in);
         Random random = new Random();
-        int user;
-        int computer;
+        int user = 0;
+        int computer = 0;
 
         String[] arr = {"Rock", "Paper", "Scissors"};
 
-        while (true) {
-            System.out.println("Welcome to our rock, paper, scissors game!\nThe options are:");
-            System.out.println("1. Rock\n2. Paper\n3.Scissors");
-            System.out.println("Type 1-3 and the computer will respond automatically.");
-            user = scan.nextInt();
-            scan.nextLine();
+        System.out.println("Welcome to our rock, paper, scissors game!\nThe options are:");
 
-            if (user > 2 || user < 0) return;
+        while (true) {
+                System.out.println("1. Rock\n2. Paper\n3.Scissors");
+                System.out.println("Type 1-3 and the computer will respond automatically.");
+                user = scan.nextInt() - 1;
+                scan.nextLine();
+
+            if (user > 2 || user < 0) {
+                System.out.println("The number must be 1, 2 or 3.");
+                break;
+            }
             computer = random.nextInt(3);
 
             System.out.println("You: " + arr[user] + " vs Computer: " + arr[computer]);
             String resultPhrase = getWinner(user, computer);
             System.out.println(resultPhrase);
             updateScore(resultPhrase);
+            System.out.printf("You: %d | Computer: %d\n", userScore, computerScore);
 
-
-
+            System.out.println();
+            System.out.println("Do you wanna play again? (y/n)");
+            if(!scan.nextLine().equalsIgnoreCase("y")) break;
         }
     }
 
