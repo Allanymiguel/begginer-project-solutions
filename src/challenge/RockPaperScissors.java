@@ -10,6 +10,7 @@ public class RockPaperScissors {
     static void main() {
         Scanner scan = new Scanner(System.in);
         Random random = new Random();
+
         int user = 0;
         int computer = 0;
 
@@ -39,6 +40,8 @@ public class RockPaperScissors {
             System.out.println("Do you wanna play again? (y/n)");
             if(!scan.nextLine().equalsIgnoreCase("y")) break;
         }
+        System.out.println("Thanks for playing!");
+
     }
 
     static String getWinner(int user, int computer) {
